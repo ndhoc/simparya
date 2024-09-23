@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Không Tìm Thấy Trang</title>
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_A6gyG_cTIF990H-CtzKFU-6t5YvrICbuYg&s" type="image/png">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 100px;
+            margin: 0;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+        html, body {
+        cursor: url("https://1.bp.blogspot.com/-qbWo9mPKO2Y/YL9utYdQBdI/AAAAAAAAFs4/mtjGu6u2uGwtJsT4gZG4lbhLV1a5lG6OQCLcBGAsYHQ/s0/mouse-f1.png"), auto;
+        }
+        a:hover {
+    cursor: url("https://1.bp.blogspot.com/-nYv2dLl3oXY/YL9utYBCh8I/AAAAAAAAFtA/wII4lVw5w4k-4isGMY41heTqk8U4TJujgCLcBGAsYHQ/s0/mouse-f2.png"), auto;
+        }
+    </style>
+    <script>
+        // Chặn chuột phải
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+    
+        // Chặn F12 và Ctrl+Shift+I
+        document.addEventListener('keydown', function(event) {
+            // Kiểm tra nếu người dùng nhấn F12
+            if (event.key === 'F12') {
+                event.preventDefault();
+            }
+            
+            // Kiểm tra nếu người dùng nhấn Ctrl+Shift+I (Mở Developer Tools)
+            if (event.ctrlKey && event.shiftKey && event.key === 'I') {
+                event.preventDefault();
+            }
+            
+            // Kiểm tra nếu người dùng nhấn Ctrl+U (Xem nguồn trang)
+            if (event.ctrlKey && event.key === 'u') {
+                event.preventDefault();
+            }
+    
+            // Kiểm tra nếu người dùng nhấn Ctrl+Shift+C (Inspect Element)
+            if (event.ctrlKey && event.shiftKey && event.key === 'C') {
+                event.preventDefault();
+            }
+    
+            // Kiểm tra nếu người dùng nhấn Ctrl+Shift+J (Console)
+            if (event.ctrlKey && event.shiftKey && event.key === 'J') {
+                event.preventDefault();
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>404</h1>
+        <p>Oops! Hình như bạn bị lạc rồi.</p>
+        <a href="/">Quay về trang chủ</a>
+    </div>
+</body>
+</html>
