@@ -1,1 +1,1 @@
-Tôi làm ra chỉ để simp Arya chứ ko bt code :v
+I made it just to simp Arya, but I don't know how to code :v
