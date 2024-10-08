@@ -51,20 +51,35 @@
 
 
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f8ff;
-            font-family: 'Fredoka One', sans-serif;
-            flex-direction: column;
-            text-align: center;
-            transition: background-color 0.3s ease;
-            background-image: url('https://i.imgur.com/kG8fTNM.jpeg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f8ff;
+    font-family: 'Fredoka One', sans-serif;
+    flex-direction: column;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+/* Làm mờ ảnh nền */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://roshidere.com/core_sys/images/main/home/moonviewing2024.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px); /* Độ mờ của ảnh nền */
+    z-index: -1; /* Đảm bảo rằng nền ở phía sau nội dung */
+}
+
 
         h1 {
             font-size: 48px;
