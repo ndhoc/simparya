@@ -1,0 +1,145 @@
+/* Áp dụng font chữ đẹp */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            scroll-behavior: smooth; /* Cuộn mượt */
+        }
+
+        /* Header với logo */
+        header {
+            background-color: #ffffff; /* Đặt nền header thành màu trắng */
+            color: #333;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Chỉnh logo trong header */
+        header img {
+            width: 100px; /* Tăng kích thước logo */
+            height: auto;
+            margin-right: 15px; /* Khoảng cách giữa logo và dấu ngạch đứng */
+        }
+
+        header h1 {
+            font-size: 2rem; /* Điều chỉnh kích thước chữ tiêu đề */
+            margin: 0;
+            margin-left: 15px; /* Khoảng cách giữa dấu ngạch đứng và tiêu đề */
+        }
+
+        /* Dấu ngạch đứng */
+        .separator {
+            margin: 0 10px; /* Khoảng cách giữa logo và tiêu đề */
+            font-size: 2rem; /* Kích thước dấu ngạch đứng */
+        }
+
+        nav {
+            text-align: center;
+            padding: 10px;
+            background-color: #add8e6; /* Màu xanh nhạt cho thanh menu */
+        }
+
+        nav a {
+            color: black; /* Màu chữ trong menu thành màu đen */
+            margin: 0 15px;
+            text-decoration: none; /* Bỏ gạch chân mặc định */
+            font-weight: bold;
+            position: relative; /* Để tạo hiệu ứng gạch chân */
+        }
+
+        /* Hiệu ứng gạch chân */
+        nav a::after {
+            content: '';
+            display: block;
+            height: 2px; /* Độ dày của gạch chân */
+            width: 0; /* Chiều rộng ban đầu là 0 */
+            background: black; /* Màu gạch chân */
+            transition: width 0.3s ease; /* Hiệu ứng mượt mà */
+            position: absolute;
+            left: 50%; /* Căn giữa */
+            bottom: -5px; /* Khoảng cách từ chữ đến gạch chân */
+        }
+
+        nav a:hover::after {
+            width: 100%; /* Đầy đủ chiều rộng khi rê chuột */
+            left: 0; /* Đặt lại vị trí để căn trái */
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px; /* Bo tròn góc */
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        /* Bố cục thông tin và ảnh */
+        .character-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .character-image {
+            margin-left: 20px;
+            flex: 1;
+        }
+
+        .character-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .character-info {
+            flex: 2;
+        }
+
+        .character-info table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .character-info th, .character-info td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .character-info th {
+            background-color: #f2f2f2;
+        }
+
+        .character-description {
+            margin-top: 30px;
+        }
+
+        .character-description p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Footer nhỏ hơn với font chữ đẹp */
+        footer {
+            text-align: center;
+            padding: 5px; /* Giảm padding để nhỏ hơn */
+            background-color: #050505;
+            color: white;
+            font-size: 0.8rem; /* Giảm kích thước chữ */
+        }
+        /* Thay đổi con trỏ chuột */
+        html, body {
+    cursor: url("https://1.bp.blogspot.com/-qbWo9mPKO2Y/YL9utYdQBdI/AAAAAAAAFs4/mtjGu6u2uGwtJsT4gZG4lbhLV1a5lG6OQCLcBGAsYHQ/s0/mouse-f1.png"), auto;
+}
+a:hover {
+    cursor: url("https://1.bp.blogspot.com/-nYv2dLl3oXY/YL9utYBCh8I/AAAAAAAAFtA/wII4lVw5w4k-4isGMY41heTqk8U4TJujgCLcBGAsYHQ/s0/mouse-f2.png"), auto;
+}
