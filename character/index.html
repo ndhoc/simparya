@@ -5,267 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Danh sách nhân vật">
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_A6gyG_cTIF990H-CtzKFU-6t5YvrICbuYg&s" type="image/png">
-    <title>Danh sách nhân vật</title>
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
-    
-    <style>
-        header {
-            background-color: #ffffff;
-            color: #333;
-            padding: 15px 20px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        header h1 {
-            margin: 0;
-        }
-
-        nav {
-            text-align: center;
-            padding: 10px;
-            background-color: #add8e6;
-        }
-
-        nav a {
-            color: black;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .content {
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-        }
-
-        h2, h3 {
-            color: #333;
-        }
-
-        .character-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
-        }
-
-        .character-item {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-
-        .character-item:hover {
-            transform: scale(1.05);
-        }
-
-        .character-item img {
-            width: 100%;
-            height: auto;
-        }
-
-        .character-info {
-            padding: 10px;
-            text-align: center;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #2c3e50;
-            color: white;
-            font-size: 0.8rem;
-        }
-        /* Áp dụng font chữ đẹp */
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            scroll-behavior: smooth; /* Cuộn mượt */
-        }
-
-        /* Header với logo */
-        header {
-            background-color: #ffffff; /* Đặt nền header thành màu trắng */
-            color: #333;
-            padding: 15px 20px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Chỉnh logo trong header */
-        header img {
-            width: 100px; /* Tăng kích thước logo */
-            height: auto;
-            margin-right: 15px; /* Khoảng cách giữa logo và dấu ngạch đứng */
-        }
-
-        header h1 {
-            font-size: 2rem; /* Điều chỉnh kích thước chữ tiêu đề */
-            margin: 0;
-            margin-left: 15px; /* Khoảng cách giữa dấu ngạch đứng và tiêu đề */
-        }
-
-        /* Dấu ngạch đứng */
-        .separator {
-            margin: 0 10px; /* Khoảng cách giữa logo và tiêu đề */
-            font-size: 2rem; /* Kích thước dấu ngạch đứng */
-        }
-
-        nav {
-            text-align: center;
-            padding: 10px;
-            background-color: #add8e6; /* Màu xanh nhạt cho thanh menu */
-        }
-
-        nav a {
-            color: black; /* Màu chữ trong menu thành màu đen */
-            margin: 0 15px;
-            text-decoration: none; /* Bỏ gạch chân mặc định */
-            font-weight: bold;
-            position: relative; /* Để tạo hiệu ứng gạch chân */
-        }
-
-        /* Hiệu ứng gạch chân */
-        nav a::after {
-            content: '';
-            display: block;
-            height: 2px; /* Độ dày của gạch chân */
-            width: 0; /* Chiều rộng ban đầu là 0 */
-            background: black; /* Màu gạch chân */
-            transition: width 0.3s ease; /* Hiệu ứng mượt mà */
-            position: absolute;
-            left: 50%; /* Căn giữa */
-            bottom: -5px; /* Khoảng cách từ chữ đến gạch chân */
-        }
-
-        nav a:hover::after {
-            width: 100%; /* Đầy đủ chiều rộng khi rê chuột */
-            left: 0; /* Đặt lại vị trí để căn trái */
-        }
-
-        .content {
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 15px; /* Bo tròn góc */
-        }
-
-        h1, h2, h3 {
-            color: #333;
-        }
-
-        /* Bố cục thông tin và ảnh */
-        .character-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .character-image {
-            margin-left: 20px;
-            flex: 1;
-        }
-
-        .character-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        .character-info {
-            flex: 2;
-        }
-
-        .character-info table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .character-info th, .character-info td {
-            padding: 10px;
-            border: 1px solid #ddd;
-        }
-
-        .character-info th {
-            background-color: #f2f2f2;
-        }
-
-        .character-description {
-            margin-top: 30px;
-        }
-
-        .character-description p {
-            line-height: 1.6;
-            color: #555;
-        }
-
-        /* Footer nhỏ hơn với font chữ đẹp */
-        footer {
-            text-align: center;
-            padding: 5px; /* Giảm padding để nhỏ hơn */
-            background-color: #050505;
-            color: white;
-            font-size: 0.8rem; /* Giảm kích thước chữ */
-        }
-         /* Thay đổi con trỏ chuột */
-         html, body {
-    cursor: url("https://1.bp.blogspot.com/-qbWo9mPKO2Y/YL9utYdQBdI/AAAAAAAAFs4/mtjGu6u2uGwtJsT4gZG4lbhLV1a5lG6OQCLcBGAsYHQ/s0/mouse-f1.png"), auto;
-}
-a:hover {
-    cursor: url("https://1.bp.blogspot.com/-nYv2dLl3oXY/YL9utYBCh8I/AAAAAAAAFtA/wII4lVw5w4k-4isGMY41heTqk8U4TJujgCLcBGAsYHQ/s0/mouse-f2.png"), auto;
-}
-
-    </style>
-    <script>
-        // Chặn chuột phải
-        document.addEventListener('contextmenu', function(event) {
-            event.preventDefault();
-        });
-    
-        // Chặn F12 và Ctrl+Shift+I
-        document.addEventListener('keydown', function(event) {
-            // Kiểm tra nếu người dùng nhấn F12
-            if (event.key === 'F12') {
-                event.preventDefault();
-            }
-            
-            // Kiểm tra nếu người dùng nhấn Ctrl+Shift+I (Mở Developer Tools)
-            if (event.ctrlKey && event.shiftKey && event.key === 'I') {
-                event.preventDefault();
-            }
-            
-            // Kiểm tra nếu người dùng nhấn Ctrl+U (Xem nguồn trang)
-            if (event.ctrlKey && event.key === 'u') {
-                event.preventDefault();
-            }
-    
-            // Kiểm tra nếu người dùng nhấn Ctrl+Shift+C (Inspect Element)
-            if (event.ctrlKey && event.shiftKey && event.key === 'C') {
-                event.preventDefault();
-            }
-    
-            // Kiểm tra nếu người dùng nhấn Ctrl+Shift+J (Console)
-            if (event.ctrlKey && event.shiftKey && event.key === 'J') {
-                event.preventDefault();
-            }
-        });
-    </script>
+    <link rel="stylesheet" href="character/css/styles.css">
+    <title>Danh sách nhân vật</title>
 </head>
 <body>
-
+    <script src="character/js/script.js"></script>
     <header>
         <!-- Thêm logo vào đầu trang với liên kết -->
         <a href="/">
@@ -274,14 +19,12 @@ a:hover {
         <span class="separator">|</span> <!-- Dấu ngạch đứng -->
         <h1>Arya</h1> <!-- Tiêu đề là tên nhân vật -->
     </header>
-
     <nav>
         <a href="/arya">Trang chủ</a>
         <a href="/character">Danh sách nhân vật</a>
         <a href="/gallery">Kho ảnh</a>
         <a href="mailto:me@simparya.com">Liên hệ</a>
     </nav>
-
     <div class="content">
         <h2>Các nhân vật nổi bật</h2>
         <div class="character-list">
@@ -292,7 +35,6 @@ a:hover {
                     <p>Nữ chính. Bạn cùng lớp với Kuze. Cô là một cô gái người Nhật gốc Nga, rất tài năng và nổi tiếng. Vì một số lý do, cô luôn che giấu cảm xúc thật của mình bằng những câu tiếng Nga.</p>
                 </div>
             </div>
-
             <div class="character-item">
                 <img src="https://i.imgur.com/nvuvtso.png" alt="Kuze Masachika">
                 <div class="character-info">
@@ -300,7 +42,6 @@ a:hover {
                     <p>Nam chính. Học sinh năm nhất. Cậu hay bị nhiều chàng trai ghen tị vì ngồi cạnh và thân thiết với Alya. Vì một số lý do, cậu luôn che giấu về khả năng ngoại ngữ của mình.</p>
                 </div>
             </div>
-
             <div class="character-item">
                 <img src="https://i.imgur.com/DS5IdIx.png" alt="Yuki Suou">
                 <div class="character-info">
@@ -308,7 +49,6 @@ a:hover {
                     <p>Bề ngoài cô là một tiểu thư chính hiệu, nhưng bên trong thì cô lại là một otaku. Thực ra cô là em gái ruột của Kuze, hai anh em sống tách ra do cha mẹ họ ly hôn và người cha rời bỏ nhà Suō rồi đổi lại về họ Kuze. Do không muốn ảnh hưởng đến danh dự của nhà Suō nên hai anh em họ chỉ biểu thị ra bên ngoài rằng họ là bạn thuở nhỏ.</p>
                 </div>
             </div>
-
             <div class="character-item">
                 <img src="https://i.imgur.com/eA1zrP6.png" alt="Maria Mikhailovna Kujō">
                 <div class="character-info">
@@ -321,7 +61,7 @@ a:hover {
     </div>
 
     <footer>
-        <p>&hearts; <b>Simp Arya</b> - create 17/9/2024.</p>
+        <a href="mailto:me@simparya.com" style="text-decoration: none; color: inherit;">&hearts; <b>Simp Arya</b></a> - create 17/9/2024.
     </footer>
 
 </body>
