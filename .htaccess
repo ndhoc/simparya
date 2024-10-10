@@ -1,1 +1,6 @@
 ErrorDocument 404 /404.html
+RewriteEngine On
+RewriteRule ^arya/index\.html$ /thongtin [L,R=301]
+RewriteRule ^character/index\.html$ /nhanvat [L,R=301]
+RewriteRule ^gallery/index\.html$ /khoanh [L,R=301]
+
