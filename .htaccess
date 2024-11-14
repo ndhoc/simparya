@@ -1,6 +1,10 @@
+Options -Indexes
+ErrorDocument 403 /404.html
 ErrorDocument 404 /404.html
 RewriteEngine On
 RewriteRule ^arya/index\.html$ /thongtin [L,R=301]
 RewriteRule ^character/index\.html$ /nhanvat [L,R=301]
 RewriteRule ^gallery/index\.html$ /khoanh [L,R=301]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [R=404,L]
 
