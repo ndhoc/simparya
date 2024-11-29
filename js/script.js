@@ -168,3 +168,22 @@ window.onload = function() {
             }(), n()
         }(window, document);
     
+  // Hàm điều hướng với hiệu ứng NProgress
+  function navigateToVideo(videoId) {
+    NProgress.start(); // Hiển thị thanh tải
+    setTimeout(() => {
+      window.location.href = `video.html?videoId=${videoId}`; // Điều hướng sang trang video
+      NProgress.done(); // Hoàn thành thanh tải
+    }, 500); // Độ trễ 500ms
+  }
+
+  // Gắn sự kiện cho các nút
+  document.getElementById('btnIntro').addEventListener('click', function() {
+    navigateToVideo('WMdXTiLrT2g'); // Thay INTRO_VIDEO_ID bằng ID video Intro
+  });
+  document.getElementById('btnFullSS1').addEventListener('click', function() {
+    navigateToVideo('wDWTxNieSXA'); // Thay FULL_SS1_VIDEO_ID bằng ID video Full ss1
+  });
+
+  
+
