@@ -10,6 +10,9 @@
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_A6gyG_cTIF990H-CtzKFU-6t5YvrICbuYg&s" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <!--NProgress-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ40Q3VVEK"></script>
     <script>
@@ -29,28 +32,9 @@
         </a>
         <div class="hover-text">Alisa Mikhailovna Kujo</div>
     </div>
-
-    <!-- Nút Play nhạc -->
-    <button class="play-intro">Xem intro</button>
-
-    <!-- Nút Play nhạc thứ hai -->
-    <button class="play-intro">Xem Full SS1</button>
-
-    <!-- Khung chứa video thứ nhất -->
-    <div class="video-overlay">
-        <div class="video-container">
-            <span class="close-btn">&times;</span>
-            <iframe src="https://www.youtube.com/embed/WMdXTiLrT2g?si=0mkQLj-N3CMHjFi-" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
-        </div>
-    </div>
-
-    <!-- Khung chứa video thứ hai -->
-    <div class="video-overlay">
-        <div class="video-container">
-            <span class="close-btn">&times;</span>
-            <iframe src="https://www.youtube.com/embed/videoseries?si=vjUgJa9IdlCGv1lj&amp;list=PLOVZwvNm10lXXHntj4Mrr5y5yiHKOKf0A" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
-        </div>
-    </div>
+    
+    <button id="btnIntro">Xem Intro</button>
+    <button id="btnFullSS1">Xem Full ss1</button>
 
     <footer style="position: fixed; bottom: 0; width: 100%; text-align: center; padding: 10px; color: white; font-size: 12px;">
         <a href="mailto:me@simparya.com" style="text-decoration: none; color: inherit;">&hearts; <b>Simp Arya</b></a> - created 17/9/2024.
