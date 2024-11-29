@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Player</title>
+  <title>Simp Arya<3 - Watch</title>
+  <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_A6gyG_cTIF990H-CtzKFU-6t5YvrICbuYg&s" type="image/png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
@@ -118,6 +119,7 @@ img:hover,
 button:hover {
     cursor: url("https://1.bp.blogspot.com/-nYv2dLl3oXY/YL9utYBCh8I/AAAAAAAAFtA/wII4lVw5w4k-4isGMY41heTqk8U4TJujgCLcBGAsYHQ/s0/mouse-f2.png"), auto;
 }
+
   </style>
 </head>
 <body>
@@ -164,6 +166,38 @@ button:hover {
         window.history.back(); // Quay lại trang trước sau 300ms (hoặc thời gian bạn muốn)
     }, 300);
 }
+// Chặn chuột phải
+document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+
+        // Chặn F12 và Ctrl+Shift+I
+        document.addEventListener('keydown', function(event) {
+            // Kiểm tra nếu người dùng nhấn F12
+            if (event.key === 'F12') {
+                event.preventDefault();
+            }
+
+            // Kiểm tra nếu người dùng nhấn Ctrl+Shift+I (Mở Developer Tools)
+            if (event.ctrlKey && event.shiftKey && event.key === 'I') {
+                event.preventDefault();
+            }
+
+            // Kiểm tra nếu người dùng nhấn Ctrl+U (Xem nguồn trang)
+            if (event.ctrlKey && event.key === 'u') {
+                event.preventDefault();
+            }
+
+            // Kiểm tra nếu người dùng nhấn Ctrl+Shift+C (Inspect Element)
+            if (event.ctrlKey && event.shiftKey && event.key === 'C') {
+                event.preventDefault();
+            }
+
+            // Kiểm tra nếu người dùng nhấn Ctrl+Shift+J (Console)
+            if (event.ctrlKey && event.shiftKey && event.key === 'J') {
+                event.preventDefault();
+            }
+        });
   </script>
 </body>
 </html>
