@@ -12,7 +12,7 @@
   <style>
     /* Ẩn biểu tượng xoay của trình duyệt */
     html, body {
-      cursor: progress; /* Dùng con trỏ loading trong suốt thời gian tải */
+      cursor: progress;
     }
 
     /* Nền của trang */
@@ -63,7 +63,7 @@
     #videoContainer {
       position: relative;
       width: 80%;
-      padding-bottom: 45%; /* Tỷ lệ 16:9 */
+      padding-bottom: 45%;
       background-color: #000;
       border-radius: 8px;
       overflow: hidden;
@@ -110,16 +110,14 @@
     button:active {
       transform: scale(1);
     }
-    html,
-body {
-    cursor: url("https://1.bp.blogspot.com/-qbWo9mPKO2Y/YL9utYdQBdI/AAAAAAAAFs4/mtjGu6u2uGwtJsT4gZG4lbhLV1a5lG6OQCLcBGAsYHQ/s0/mouse-f1.png"), auto;
-}
 
-img:hover,
-button:hover {
-    cursor: url("https://1.bp.blogspot.com/-nYv2dLl3oXY/YL9utYBCh8I/AAAAAAAAFtA/wII4lVw5w4k-4isGMY41heTqk8U4TJujgCLcBGAsYHQ/s0/mouse-f2.png"), auto;
-}
+    html, body {
+      cursor: url("https://1.bp.blogspot.com/-qbWo9mPKO2Y/YL9utYdQBdI/AAAAAAAAFs4/mtjGu6u2uGwtJsT4gZG4lbhLV1a5lG6OQCLcBGAsYHQ/s0/mouse-f1.png"), auto;
+    }
 
+    img:hover, button:hover {
+      cursor: url("https://1.bp.blogspot.com/-nYv2dLl3oXY/YL9utYBCh8I/AAAAAAAAFtA/wII4lVw5w4k-4isGMY41heTqk8U4TJujgCLcBGAsYHQ/s0/mouse-f2.png"), auto;
+    }
   </style>
 </head>
 <body>
@@ -138,66 +136,53 @@ button:hover {
   <script>
     // Hiển thị thanh tải khi tải trang
     NProgress.start();
-    
+
     // Dừng thanh tải khi trang hoàn tất tải
     window.addEventListener('load', () => {
       NProgress.done();
-      document.body.style.cursor = 'default'; // Đổi lại con trỏ chuột khi tải xong
-      document.documentElement.style.cursor = 'default'; // Đổi lại con trỏ của html
+      document.body.style.cursor = 'default';
+      document.documentElement.style.cursor = 'default';
     });
 
-    // Lấy videoId từ URL
+    // Lấy videoId và listId từ URL
     const urlParams = new URLSearchParams(window.location.search);
     const videoId = urlParams.get('videoId');
+    const listId = urlParams.get('listId');
 
-    if (videoId) {
-      // Nhúng video YouTube
-      const iframe = document.getElementById('videoPlayer');
+    const iframe = document.getElementById('videoPlayer');
+
+    if (listId) {
+      // Nhúng playlist YouTube
+      iframe.src = `https://www.youtube.com/embed/videoseries?list=${listId}&autoplay=1&loop=1`;
+    } else if (videoId) {
+      // Nhúng video YouTube đơn lẻ
       iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&playlist=${videoId}&loop=1`;
     } else {
-      // Hiển thị lỗi nếu không có videoId
+      // Hiển thị lỗi nếu không có videoId hoặc listId
       document.getElementById('videoContainer').innerHTML = '<p>Video không tồn tại hoặc bị lỗi.</p>';
     }
 
-    // Quay lại trang chủ
+    // Quay lại trang trước
     function goBack() {
-    NProgress.start(); // Bắt đầu hiệu ứng tải
-    setTimeout(() => {
-        window.history.back(); // Quay lại trang trước sau 300ms (hoặc thời gian bạn muốn)
-    }, 300);
-}
-// Chặn chuột phải
-document.addEventListener('contextmenu', function(event) {
-            event.preventDefault();
-        });
+      NProgress.start();
+      setTimeout(() => {
+        window.history.back();
+      }, 300);
+    }
 
-        // Chặn F12 và Ctrl+Shift+I
-        document.addEventListener('keydown', function(event) {
-            // Kiểm tra nếu người dùng nhấn F12
-            if (event.key === 'F12') {
-                event.preventDefault();
-            }
+    // Chặn chuột phải
+    document.addEventListener('contextmenu', function(event) {
+      event.preventDefault();
+    });
 
-            // Kiểm tra nếu người dùng nhấn Ctrl+Shift+I (Mở Developer Tools)
-            if (event.ctrlKey && event.shiftKey && event.key === 'I') {
-                event.preventDefault();
-            }
-
-            // Kiểm tra nếu người dùng nhấn Ctrl+U (Xem nguồn trang)
-            if (event.ctrlKey && event.key === 'u') {
-                event.preventDefault();
-            }
-
-            // Kiểm tra nếu người dùng nhấn Ctrl+Shift+C (Inspect Element)
-            if (event.ctrlKey && event.shiftKey && event.key === 'C') {
-                event.preventDefault();
-            }
-
-            // Kiểm tra nếu người dùng nhấn Ctrl+Shift+J (Console)
-            if (event.ctrlKey && event.shiftKey && event.key === 'J') {
-                event.preventDefault();
-            }
-        });
+    // Chặn các phím tắt Developer Tools
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'F12' || 
+          (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'C' || event.key === 'J')) || 
+          (event.ctrlKey && event.key === 'U')) {
+        event.preventDefault();
+      }
+    });
   </script>
 </body>
 </html>
