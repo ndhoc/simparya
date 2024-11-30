@@ -1,3 +1,4 @@
+NProgress.start();
 window.onload = function() {
     
     const title = document.querySelector('h1');
@@ -85,6 +86,7 @@ window.onload = function() {
             videoOverlays[index].style.display = 'none';
             };
         });
+        NProgress.done();
     };
     // Chặn chuột phải
         document.addEventListener('contextmenu', function(event) {
