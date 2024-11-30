@@ -1,4 +1,5 @@
 window.onload = function() {
+    
     const title = document.querySelector('h1');
     const description = document.querySelector('p');
     const image = document.querySelector('img');
@@ -168,22 +169,27 @@ window.onload = function() {
             }(), n()
         }(window, document);
     
-  // Hàm điều hướng với hiệu ứng NProgress
-  function navigateToVideo(videoId) {
-    NProgress.start(); // Hiển thị thanh tải
-    setTimeout(() => {
-      window.location.href = `video.html?videoId=${videoId}`; // Điều hướng sang trang video
-      NProgress.done(); // Hoàn thành thanh tải
-    }, 500); // Độ trễ 500ms
-  }
-
-  // Gắn sự kiện cho các nút
-  document.getElementById('btnIntro').addEventListener('click', function() {
-    navigateToVideo('WMdXTiLrT2g'); // Thay INTRO_VIDEO_ID bằng ID video Intro
-  });
-  document.getElementById('btnFullSS1').addEventListener('click', function() {
-    navigateToVideo('wDWTxNieSXA'); // Thay FULL_SS1_VIDEO_ID bằng ID video Full ss1
-  });
+        function navigateToVideo(videoId, listId = null) {
+            NProgress.start(); // Hiển thị thanh tải
+            setTimeout(() => {
+              // Nếu có listId, điều hướng tới playlist; nếu không, điều hướng tới video đơn
+              if (listId) {
+                window.location.href = `video.html?listId=${listId}`; // Điều hướng tới trang video với playlist
+              } else {
+                window.location.href = `video.html?videoId=${videoId}`; // Điều hướng tới trang video với video đơn
+              }
+              NProgress.done(); // Hoàn thành thanh tải
+            }, 500); // Độ trễ 500ms
+        }
+        
+        // Gắn sự kiện cho các nút
+        document.getElementById('btnIntro').addEventListener('click', function() {
+            navigateToVideo('WMdXTiLrT2g'); // Thay INTRO_VIDEO_ID bằng ID video Intro
+        });
+        document.getElementById('btnFullSS1').addEventListener('click', function() {
+            navigateToVideo(null, 'PLOVZwvNm10lXXHntj4Mrr5y5yiHKOKf0A'); // Thay FULL_SS1_LIST_ID bằng ID playlist Full SS1
+        });
+        
 
   
 
